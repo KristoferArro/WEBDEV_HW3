@@ -1,117 +1,40 @@
 <template>
   <div class=view>
   <div class=flex-container>
-    <div class="post">
+    <div v-for="post in getPosts" :key='post.postid' class="post-container">
+      <div class="post">
         <div class="post-header">
-            <img src="images/profile.jpg" class="avatar">
-            {{$store.state.post1.posttime}}
+            <img src="@/assets/profile.jpg" alt="user">
+            {{ post.posttime }}
         </div>
-        <h4>{{$store.state.post1.posttext}}</h4>
+        <div class="img-container">
+            <img v-if="post.img != ''" :src="post.img" alt="image">
+        </div>
+        <h4>{{ post.posttext }}</h4>
         <div class="btm-container">
-            <a href=""><img src="images/like.png" alt="like"></a>
+            <a href=""><img src='@/assets/like.png' alt="like"></a>
         </div>
-    </div>
-    <div class="post">
-        <div class="post-header">
-            <img src="images/profile.jpg" class="avatar">
-            {{$store.state.post2.posttime}}
-        </div>
-        <h4>{{$store.state.post2.posttext}}</h4>
-        <div class="btm-container">
-            <a href=""><img src="images/like.png" alt="like"></a>
-        </div>
-    </div>
-    <div class="post">
-        <div class="post-header">
-            <img src="images/profile.jpg" class="avatar">
-            {{$store.state.post3.posttime}}
-        </div>
-        <h4>{{$store.state.post3.posttext}}</h4>
-        <div class="btm-container">
-            <a href=""><img src="images/like.png" alt="like"></a>
-        </div>
-    </div>
-    <div class="post">
-        <div class="post-header">
-            <img src="images/profile.jpg" class="avatar">
-            {{$store.state.post4.posttime}}
-        </div>
-        <h4>{{$store.state.post4.posttext}}</h4>
-        <div class="btm-container">
-            <a href=""><img src="images/like.png" alt="like"></a>
-        </div>
-    </div>
-    <div class="post">
-        <div class="post-header">
-            <img src="images/profile.jpg" class="avatar">
-            {{$store.state.post5.posttime}}
-        </div>
-        <h4>{{$store.state.post5.posttext}}</h4>
-        <div class="btm-container">
-            <a href=""><img src="images/like.png" alt="like"></a>
-        </div>
-    </div>
-    <div class="post">
-        <div class="post-header">
-            <img src="images/profile.jpg" class="avatar">
-            {{$store.state.post6.posttime}}
-        </div>
-        <h4>{{$store.state.post6.posttext}}</h4>
-        <div class="btm-container">
-            <a href=""><img src="images/like.png" alt="like"></a>
-        </div>
-    </div>
-    <div class="post">
-        <div class="post-header">
-            <img src="images/profile.jpg" class="avatar">
-            {{$store.state.post7.posttime}}
-        </div>
-        <h4>{{$store.state.post7.posttext}}</h4>
-        <div class="btm-container">
-            <a href=""><img src="images/like.png" alt="like"></a>
-        </div>
-    </div>
-    <div class="post">
-        <div class="post-header">
-            <img src="images/profile.jpg" class="avatar">
-            {{$store.state.post8.posttime}}
-        </div>
-        <h4>{{$store.state.post8.posttext}}</h4>
-        <div class="btm-container">
-            <a href=""><img src="images/like.png" alt="like"></a>
-        </div>
-    </div>
-    <div class="post">
-        <div class="post-header">
-            <img src="images/profile.jpg" class="avatar">
-            {{$store.state.post9.posttime}}
-        </div>
-        <h4>{{$store.state.post9.posttext}}</h4>
-        <div class="btm-container">
-            <a href=""><img src="images/like.png" alt="like"></a>
-        </div>
-    </div>
-    <div class="post">
-        <div class="post-header">
-            <img src="images/profile.jpg" class="avatar">
-            {{$store.state.post10.posttime}}
-        </div>
-        <h4>{{$store.state.post10.posttext}}</h4>
-        <div class="btm-container">
-            <a href=""><img src="images/like.png" alt="like"></a>
-        </div>
+      </div>
     </div>
   </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  
+  computed: {
+    ...mapGetters(['getPosts'])
+  },
+  name: 'Home'
 }
 </script>
 
 <style>
+.post-container {
+  width: 100%;
+}
 .view {
   background-color: #0080ff;
 }
@@ -133,10 +56,11 @@ export default {
     box-shadow: 10px 5px 8px 5px rgba(20, 18, 18, 0.623);
 }
 
-div+h4 {
+h4 {
     font-weight: bold;
     text-align: left;
     padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .post-header {
@@ -151,7 +75,14 @@ div+h4 {
     float: left;
     width: 7.5%;
 }
-div~h4 {
-    font-family: Arial, Helvetica, sans-serif;
+.img-container img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.btm-container img {
+    width: 10%;
+    margin-left: 90%;
+    margin-right: 0;
 }
 </style>
