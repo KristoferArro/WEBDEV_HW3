@@ -2,7 +2,7 @@
   <div class=view>
   <div class=flex-container>
     <div>
-      <h3 v-on:click="resetFunction">Reset likes</h3>
+      <button id= "buttonR" v-on:click="resetFunction">Reset likes</button>
     </div>
     <div v-for="post in getPosts" :key='post.postid' class="post-container">
       <div class="post">
@@ -95,8 +95,12 @@ h4 {
 }
 
 .btm-container img {
-    width: 10%;
-    margin-left: 90%;
-    margin-right: 0;
+    width: 5%;
+
+}
+
+#buttonR{
+  margin-top: 15%;
+  background-color: #0080ff;
 }
 </style>
