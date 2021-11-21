@@ -7,8 +7,11 @@
     <div v-for="post in getPosts" :key='post.postid' class="post-container">
       <div class="post">
         <div class="post-header">
-            <img :src='post.img'>
+            <img src="@/assets/profile.jpg" alt="user">
             {{ post.posttime }}
+        </div>
+         <div class="img-container">
+            <img v-if="post.img != ''" :src="post.img" alt="image">
         </div>
         <h4>{{ post.posttext }}</h4>
         <div class="btm-container">
@@ -85,5 +88,15 @@ h4 {
     padding-bottom: 3px;
     float: left;
     width: 7.5%;
+}
+.img-container img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.btm-container img {
+    width: 10%;
+    margin-left: 90%;
+    margin-right: 0;
 }
 </style>

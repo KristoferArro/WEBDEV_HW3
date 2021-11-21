@@ -1,11 +1,12 @@
 <template>
-  <div class="container">
+  <div id="contactContainer">
+      <img src="@/assets/contact.png">
       <h1>CONTACT US</h1>
       <p>You can contact us via email or you can send us a message here</p>
       <p>Our email is: <span style="font-weight: bold">ag@eestiparimmuusika.ee</span></p>
       <form>
           <input type="text" placeholder="Enter your message" name="message">
-          <button>Send</button>
+          <button id="sendButton">Send</button>
       </form>
   </div>
 </template>
@@ -18,7 +19,7 @@ export default {
 </script>
 
 <style lang="css">
-.container {
+#contactContainer {
     background-color: #0080ff;
     justify-content: center;
     align-items: center;
@@ -35,7 +36,7 @@ form {
     text-align: center;
 }
 
-button {
+#sendButton {
   color: black;
   background-color: #0080ff;
   margin-left: 1%;
@@ -45,9 +46,8 @@ input {
     width: 38%;
     margin-left: 7%;
 }
-
-.img-container img {
-    max-width: 100%;
-    max-height: 100%
+img {
+  max-width: 100%;
+  max-height: 100%;
 }
 </style>
